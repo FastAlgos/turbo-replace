@@ -239,7 +239,7 @@ The **Premium Edition** contains zero license code trackers, zero slow cloud val
 
 *   **Startup / Single Server License (499 €):** Lifelong deployment on 1 production server node.
 *   **SaaS Enterprise Cluster (1,199 €/year):** Unlimited node deployment, multi-cluster high-availability licensing, 24/7 priority patch support.
-*   **OEM Source Code License (2,499 €):** Full raw Pascal & ASM source code context. 100% white-label integration right inside your proprietary software.
+
 
 ### 🎯 Get Your Premium Binary Now
 To unlock the full power of your production hardware, request a commercial license by opening a secure business inquiry or contacting us directly via our GitHub profile layout. Your custom-watermarked binary will be compiled and delivered securely to your engineering team within 2 hours of verification.
