@@ -279,8 +279,6 @@ The **Premium Edition** contains zero license code trackers, zero slow cloud val
 
 ---
 
----
-
 ## ⚖️ Legal Policies & Compliance
 
 ### 🔒 Privacy Notice
