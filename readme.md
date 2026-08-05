@@ -1,16 +1,31 @@
-# 🚀 TurboReplace v1.0 x64
+# ⚡ tdjTurboReplace DLL v1.0
 
-### **The Ultimate Enterprise String & Template Engine.**
-#### *Saturate your hardware bandwidth. Process dynamic text payloads at more than 1.2 GB/s in memory and up to 870 MB/s directly on storage disks from Node.js, Python, or Delphi.*
+### **The Fastest Multi-Pattern Template & String Engine on Earth.**
+#### *Saturate your hardware. Process nearly 1 Gigabyte of dense dynamic templates under 2 seconds from Node.js, Python, or Delphi.*
 
-## 🚀 Quick Start (Evaluation Edition)
+Standard string replacement engines (like JavaScript's `replaceAll` or Python's `.replace()`) suffer from a fatal structural flaw: **Multi-Pass Immutability**. When replacing multiple variables, they rescan and reallocate the entire payload in RAM *for every single pattern*, causing massive latency, CPU cache thrashing, and fatal crashes on large workloads.
 
-This repository includes the **Evaluation Edition** of the `tdjTurboReplace.dll` binary. It features a hardcoded evaluation ceiling (stops processing after 10 Kilobytes and appends an evaluation watermark).
+**TurboReplace** bypasses the managed heap completely. Written in an ultra-optimized hybrid architecture—combining high-speed cache-aligned scanning with raw assembly vector operations (**SIMD Intel/AMD AVX2**) and an explicit 4MB dynamic L3-cache buffer—it parses and outputs data in a **single linear pass (O(N))** at the physical limit of your hardware.
 
+---
 
-Standard string replacement native functions (like JavaScript's `replaceAll` or Python's `.replace()`) suffer from critical architectural inefficiencies. When processing massive data streams with multiple variables, they waste valuable CPU cycles and reallocate system resources repeatedly, leading to massive latency, severe RAM fragmentation, and fatal crashes on enterprise workloads.
+### 💎 Key Engineering Achievements
+* **Advanced Multi-Pattern Indexing**: Eliminates traditional nested loops for length scanning. Search time remains constant regardless of the configuration size.
+* **Hardware-Level Register Routing**: 8-byte target patterns are matched instantly inside raw CPU registers to minimize memory-to-memory call latencies.
+* **Vectorized Skip Path**: Integrates a highly optimized SIMD scanning layer to fly over non-matching data chunks at maximum clock frequency.
+* **Zero-Allocation Memory Pipeline**: Executes entirely inside isolated, contiguous linear buffers. Zero garbage collection, zero heap overhead.
 
-**TurboReplace** is a highly optimized native x64 engine built to eliminate these boundaries. It executes complex multi-variable text substitutions in a highly linear workflow, delivering maximum throughput while maintaining a predictable, light system footprint.
+---
+
+### 🛑 Evaluation vs Premium Mode
+The Free Evaluation DLL has **no file size restrictions**, **no time limits**, and **no throughput throttling**. You can benchmark its extreme raw speed on multi-gigabyte production files instantly.
+
+⚠️ **Important Limitation:** In Evaluation Mode, the actual replacement text you provide is completely bypassed and destroyed at memory-level. It is replaced cyclically by our 64-character signature string while strictly preserving your requested replacement length:
+`FastAlgos/turbo-replace # THANK YOU FOR TEST # EVALUATION COPY #`
+
+*Example: If your replacement string length is 5 characters, it will output `FastA`. If it is 20 characters, it will output `FastAlgos/turbo-repl`.*
+
+Purchase a Premium License to unlock genuine data replacement in production.
 
 ---
 
@@ -54,10 +69,6 @@ Node.js Native (V8)  [███████████████████�
 > TurboReplace processes the entire workload smoothly, keeping your production server memory usage strictly locked at a static, minuscule **O(1) footprint of 4 Megabytes of RAM maximum** via its integrated L3-cache streaming ring buffer.
 
 ---
-
-## 🚀 Quick Start (Evaluation Edition)
-
-This repository includes the **Evaluation Edition** of the `tdjTurboReplace.dll` binary. It features a hardcoded evaluation ceiling (stops processing after 10 Kilobytes and appends an evaluation watermark).
 
 ### 🟢 Node.js RAM-to-RAM Integration (`sc_ram_koffi.js`)
 ```javascript
@@ -182,7 +193,7 @@ Standard PHP/WordPress template rendering (like Twig, Blade, or native `str_repl
 ```php
 <?php
 // Initialize the native C-ABI bridge directly inside your WordPress/PHP code
-\$turbo = FFI::cdef("
+$turbo = FFI::cdef("
     void* CreateTurboEngine(void);
     void AddReplacePair(void* engineHandle, const char* pattern, const char* replacement);
     void CompileTurboEngine(void* engineHandle);
@@ -191,38 +202,38 @@ Standard PHP/WordPress template rendering (like Twig, Blade, or native `str_repl
 ", __DIR__ . "/tdjTurboReplace.dll");
 
 // Instantiate and compile your global template dictionary once at initialization
-engine = turbo->CreateTurboEngine();
-turbo->AddReplacePair(engine, "_{pattern_01}_", "replacement-value-01");
-turbo->AddReplacePair(engine, "_{user.meta_data}_", "PROPRE_ET_STABLE_X64");
-turbo->CompileTurboEngine(engine);
+$engine = $turbo->CreateTurboEngine();
+$turbo->AddReplacePair($engine, "_{pattern_01}_", "replacement-value-01");
+$turbo->AddReplacePair($engine, "_{user.meta_data}_", "PROPRE_ET_STABLE_X64");
+$turbo->CompileTurboEngine($engine);
 
 /**
  * High-Speed WordPress Hook / Shortcode Rendering Example
  */
-function fast_cms_render_pipeline(\$html_template_string) {
-    global turbo, engine;
+function fast_cms_render_pipeline($html_template_string) {
+    global $turbo, $engine;
     
-    \(in_size = strlen(\)html_template_string);
-    if (\(in_size === 0) return\)html_template_string;
+    $in_size = strlen($html_template_string);
+    if ($in_size === 0) return $html_template_string;
 
     // Allocate a persistent native memory segment outside the PHP managed heap
     // This entirely bypasses PHP's standard memory_limit restrictions
-    \$out_max_size = 50 * 1024 * 1024; // 50MB Max Output Buffer Zone
-    \(out_buffer = FFI::new("char[\)out_max_size]");
+    $out_max_size = 50 * 1024 * 1024; // 50MB Max Output Buffer Zone
+    $out_buffer = FFI::new("char[$out_max_size]");
 
     // Execute single-pass execution directly on the CPU silicon
-    \(final_size =\)turbo->ExecuteTurboReplace(engine, html_template_string, \(in_size,\)out_buffer);
+    $final_size = $turbo->ExecuteTurboReplace($engine, $html_template_string, $in_size, $out_buffer);
 
     // Cast the native C-buffer back into a standard high-speed PHP string
-    return FFI::string(\(out_buffer,\)final_size);
+    return FFI::string($out_buffer, $final_size);
 }
 
 // Example usage inside an advanced shortcode or database output loop
-\$wp_raw_template = "<html>... heavy dynamic content ...</html>";
-\(wp_final_output = fast_cms_render_pipeline(\)wp_raw_template);
+$wp_raw_template = "<html>... heavy dynamic content ...</html>";
+$wp_final_output = fast_cms_render_pipeline($wp_raw_template);
 
 // Free context on plugin deactivation / process death
-// turbo->FreeTurboEngine(engine);
+// $turbo->FreeTurboEngine($engine);
 ?>
 ```
 
@@ -241,11 +252,45 @@ The **Premium Edition** contains zero license code trackers, zero slow cloud val
 *   **SaaS Enterprise Cluster (1,199 €/year):** Unlimited node deployment, multi-cluster high-availability licensing, 24/7 priority patch support.
 
 
-### 🎯 Get Your Premium Binary Now
-To unlock the full power of your production hardware, request a commercial license by opening a secure business inquiry or contacting us directly via our GitHub profile layout. Your custom-watermarked binary will be compiled and delivered securely to your engineering team within 2 hours of verification.
+### 🎯 Get Your Premium Binary Now. Choose Your Production License
 
+| License Tier | Price | Deliverable | Ideal For |
+| :--- | :--- | :--- | :--- |
+| **Developer / Indie** | **149 €** | Custom Signed Binary | Local workstation usage & prototyping. |
+| **Single Server Node** | **499 €** | Custom Signed Binary | 1 Live Production Server or SaaS node (Lifetime). |
+| **Enterprise SaaS Cluster** | **1,199 €/yr**| Custom Signed Binary | Unlimited nodes, High-Availability clusters, 24/7 patches. |
 
-*   **OEM Source Code License (Custom / Negotiable):** Full raw Pascal & ASM source code context. 100% white-label integration right inside your proprietary software. Ideal for large enterprises and software vendors. **Contact us directly for a customized quote tailored to your distribution scale.**
+### 🎯 Get Your Premium Binary Now. Choose Your Production License
+
+| License Tier | Price | Deliverable | Ideal For |
+| :--- | :--- | :--- | :--- |
+| **Student / Academic** | **Just buy me a coffee 🎓** | Custom Signed Binary | Academic research, non-commercial university projects. |
+| **Developer / Indie** | **149 €** | Custom Signed Binary | Local workstation usage & prototyping. |
+| **Single Server Node** | **499 €** | Custom Signed Binary | 1 Live Production Server or SaaS node (Lifetime). |
+| **Enterprise SaaS Cluster** | **1,199 €/yr**| Custom Signed Binary | Unlimited nodes, High-Availability clusters, 24/7 patches. |
+
+> 🔒 **Pure Speed Guarantee**: Every single commercial binary is built without cloud license trackers, zero slow validation network calls, and zero external runtimes.
+
+👉 **Are you a student or researcher?** We believe in accessible engineering. [Just buy me a coffee](https://fastalgos.net) to support the project! 
+
+⚠️ **How to get your binary:** Make your donation, leave a friendly message with your **academic/university email address**, and we will compile, watermark, and email your custom Premium binary directly to you.
+
+👉 **Ready to unlock commercial/production mode?** [Buy instantly via Lemon Squeezy](https://fastalgos.net) and receive your binary automatically within 5 minutes.
+
+---
+
+---
+
+## ⚖️ Legal Policies & Compliance
+
+### 🔒 Privacy Notice
+FastAlgos is committed to security and user privacy. Our pre-compiled native software binaries run 100% autonomously on your local infrastructure. Our tools collect strictly zero user data, contain no telemetry or analytics tracking, and establish no external internet socket connections. 
+
+### 📜 Terms of Service
+By purchasing a license for FastAlgos Turbo-Replace, you are granted a non-exclusive, non-transferable right to execute the provided binary within your specified deployment tier. Reverse-engineering, decompiling, or modifying the watermarked machine code is strictly prohibited.
+
+### 💳 Refund Policy
+Due to the digital distribution nature of pre-compiled native binaries and custom cryptographic watermarking, all sales are final and non-refundable once the signed library files have been built and delivered to your team.
 
 
 ---
