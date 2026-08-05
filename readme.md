@@ -271,11 +271,11 @@ The **Premium Edition** contains zero license code trackers, zero slow cloud val
 
 > 🔒 **Pure Speed Guarantee**: Every single commercial binary is built without cloud license trackers, zero slow validation network calls, and zero external runtimes.
 
-👉 **Are you a student or researcher?** We believe in accessible engineering. [Just buy me a coffee](https://fastalgos.net) to support the project! 
+👉 **Are you a student or researcher?** We believe in accessible engineering. [Just buy me a coffee](https://tr.fastalgos.net) to support the project! 
 
 ⚠️ **How to get your binary:** Make your donation, leave a friendly message with your **academic/university email address**, and we will compile, watermark, and email your custom Premium binary directly to you.
 
-👉 **Ready to unlock commercial/production mode?** [Buy instantly](https://fastalgos.net) and receive your binary automatically within 5 minutes.
+👉 **Ready to unlock commercial/production mode?** [Buy instantly](https://tr.fastalgos.net) and receive your binary automatically within 5 minutes.
 
 ---
 
