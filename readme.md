@@ -251,15 +251,6 @@ The **Premium Edition** contains zero license code trackers, zero slow cloud val
 *   **Startup / Single Server License (499 €):** Lifelong deployment on 1 production server node.
 *   **SaaS Enterprise Cluster (1,199 €/year):** Unlimited node deployment, multi-cluster high-availability licensing, 24/7 priority patch support.
 
-
-### 🎯 Get Your Premium Binary Now. Choose Your Production License
-
-| License Tier | Price | Deliverable | Ideal For |
-| :--- | :--- | :--- | :--- |
-| **Developer / Indie** | **149 €** | Custom Signed Binary | Local workstation usage & prototyping. |
-| **Single Server Node** | **499 €** | Custom Signed Binary | 1 Live Production Server or SaaS node (Lifetime). |
-| **Enterprise SaaS Cluster** | **1,199 €/yr**| Custom Signed Binary | Unlimited nodes, High-Availability clusters, 24/7 patches. |
-
 ### 🎯 Get Your Premium Binary Now. Choose Your Production License
 
 | License Tier | Price | Deliverable | Ideal For |
