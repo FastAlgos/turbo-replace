@@ -18,7 +18,7 @@ dictionary = {
     b"_{pattern.property2.property3.property4}_": b"PROPRE_ET_STABLE_X64. OK"
 }
 
-target_path = os.path.abspath("d:\\output_python_native.txt")
+target_path = os.path.abspath("output_python_native.txt")
 
 print("🚀 Launching NATIVE replacement and writing...")
 start_ns = time.perf_counter_ns()
@@ -38,5 +38,4 @@ elapsed_ms = (end_ns - start_ns) / 1_000_000
 print(f"[*] Input size  : {len(input_test)} bytes")
 print(f"[*] Output size : {len(output_result)} bytes")
 print(f"[+] Elapsed time: {elapsed_ms:.2f} ms")
-print(f"💡 TurboReplace DLL Reminder: ~267 ms")
 print("====================================================\n")

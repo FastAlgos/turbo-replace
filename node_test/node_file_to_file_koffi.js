@@ -15,8 +15,8 @@ AddReplacePair(engine, "_{pattern.property2.property3.property4}_", "PROPRE_ET_S
 CompileTurboEngine(engine);
 
 // Direct Disk-to-Disk streaming. Node.js RAM consumption = 0 bytes.
-const sourceFile = path.resolve(__dirname, 'd:\\input500.txt');
-const targetFile = path.resolve(__dirname, 'd:\\node_output.txt');
+const sourceFile = path.resolve(__dirname, 'input500.txt');
+const targetFile = path.resolve(__dirname, 'node_output.txt');
 
 
 console.log("\n====================================================");

@@ -5,8 +5,8 @@ console.log("\n====================================================");
 console.log("❌ BENCHMARK: NATIVE NODE.JS FILE-TO-FILE (WITHOUT DLL)");
 console.log("====================================================");
 
-const sourceFile = path.resolve(__dirname, 'd:\\input.txt');
-const targetFile = path.resolve(__dirname, 'd:\\node_ff_input.txt');
+const sourceFile = path.resolve(__dirname, 'input.txt');
+const targetFile = path.resolve(__dirname, 'node_ff_input.txt');
 
 const dictionary = {
     "_{pattern_01}_": "replacement-1-0123456789",

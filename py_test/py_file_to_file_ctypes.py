@@ -23,8 +23,8 @@ turbo_dll.AddReplacePair(engine, b"_{pattern_01}_", b"replacement-value-01")
 turbo_dll.CompileTurboEngine(engine)
 
 # Autonomous execution. Python reads zero bytes, the DLL directly handles the OS.
-source_path = os.path.abspath("d:\\input.txt").encode('ansi')
-target_path = os.path.abspath("d:\\py_output.txt").encode('ansi')
+source_path = os.path.abspath("input.txt").encode('ansi')
+target_path = os.path.abspath("py_output.txt").encode('ansi')
 
 print("\n====================================================")
 print("🚀 BENCHMARK: PYTHON 3.14.3 + DELPHI File to File 853.54 MB")

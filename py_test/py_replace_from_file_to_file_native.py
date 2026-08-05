@@ -6,8 +6,9 @@ print("\n====================================================")
 print("❌ BENCHMARK: NATIVE PYTHON FILE-TO-FILE (WITHOUT DLL)")
 print("====================================================")
 
-source_path = os.path.abspath("d:\\input500.txt")
-target_path = os.path.abspath("d:\\py_ff_native.txt")
+
+source_path = os.path.abspath("input500.txt")
+target_path = os.path.abspath("py_ff_native.txt")
 
 dictionary = {
     b"_{pattern_01}_": b"replacement-1-0123456789",
