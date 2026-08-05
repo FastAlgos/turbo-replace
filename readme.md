@@ -275,7 +275,7 @@ The **Premium Edition** contains zero license code trackers, zero slow cloud val
 
 ⚠️ **How to get your binary:** Make your donation, leave a friendly message with your **academic/university email address**, and we will compile, watermark, and email your custom Premium binary directly to you.
 
-👉 **Ready to unlock commercial/production mode?** [Buy instantly via Lemon Squeezy](https://fastalgos.net) and receive your binary automatically within 5 minutes.
+👉 **Ready to unlock commercial/production mode?** [Buy instantly](https://fastalgos.net) and receive your binary automatically within 5 minutes.
 
 ---
 
