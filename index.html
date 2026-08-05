@@ -12,6 +12,7 @@
         th { background: #1a222d; color: #fff; }
         .btn { display: inline-block; background: #ff5100; color: #fff; text-decoration: none; padding: 8px 16px; border-radius: 4px; font-weight: bold; }
         .section { background: #141a22; padding: 20px; border-radius: 6px; margin-bottom: 30px; border: 1px solid #1a222d; }
+        .hlink { outline: none; text-decoration: none; color: #ff5100; }
     </style>
 </head>
 <body>
@@ -60,7 +61,7 @@
                 </tr>
             </tbody>
         </table>
-        <p><strong>Contact Support:</strong> For custom binary signing, enterprise quotes, or hotfixes, contact us directly at: <strong><a href="mailto:support@fastalogs.net" style="outline: none; text-decoration: none; color: #ff5100;">support@fastalogs.net</a></strong></p>
+        <p><strong>Contact Support:</strong> For custom binary signing, enterprise quotes, or hotfixes, contact us directly at: <strong><a class="hlink" href="mailto:support@fastalogs.net">support@fastalogs.net</a></strong></p>
     </div>
 
     <div class="section">
@@ -97,10 +98,12 @@
         
     </div>
 
-    <div>
-        <div style="font-size: 0.8em; opacity: 0.5; text-align: center">Copyright © 2026 TurboReplace Technologies.</div>
-        <div>
-            <a href="/privacy/">Privacy Policy</a>
+    <div style="display: flex; justify-content: space-between;">
+        <div style="font-size: 0.8em; opacity: 0.5; user-select: none;">Copyright © 2026 TurboReplace Technologies.</div>
+        <div style="display: flex; gap: 24px;">
+            <a class="hlink" href="/terms/" style="color: inherit; opacity: .8;">Terms of Use</a>
+            <span style="user-select: none;">|</span>
+            <a class="hlink" href="/privacy/" style="color: inherit; opacity: .8;">Privacy Policy</a>
         </div>
     </div>
 
