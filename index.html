@@ -5,6 +5,32 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="icon" type="image/png" href="/favicon.png">
     <title>FastAlgos | High-Performance Native Libraries</title>
+
+    <script src="https://paddle.com"></script>
+    <script>
+      Paddle.Environment.set("production"); // sandbox, production
+      
+      Paddle.Initialize({ 
+        token: "live_81bdf91523b67df6516ede3a28e" 
+      });
+
+      function openCheckout(priceId) {
+        Paddle.Checkout.open({
+          settings: {
+            displayMode: "overlay",
+            theme: "dark",
+            locale: "en"
+          },
+          items: [
+            {
+              priceId: priceId,
+              quantity: 1
+            }
+          ]
+        });
+      }
+    </script>
+
     <style>
         body { font-family: -apple-system, system-ui, sans-serif; background: #0a0d12; color: #a2b4cc; line-height: 1.6; padding: 40px 20px; max-width: 800px; margin: 0 auto; }
         h1, h2, h3 { color: #ff5100; }
@@ -40,25 +66,25 @@
                     <td>🎓 Student / Academic</td>
                     <td><strong>$5.00 USD</strong></td>
                     <td>Workstation prototyping & academic research non-commercial use.</td>
-                    <td><a class="btn" href="#">Buy License</a></td>
+                    <td><a class="btn" href="#" onclick="openCheckout('pri_01kz6whek5rr8h29a8zp5ky41c')">Buy License</a></td>
                 </tr>
                 <tr>
                     <td>💻 Developer / Indie</td>
                     <td><strong>$149.00 USD</strong></td>
                     <td>Solo developer local workstation building & dev environments.</td>
-                    <td><a class="btn" href="#">Buy License</a></td>
+                    <td><a class="btn" href="#" onclick="openCheckout('pri_01kz6vcqg3yj2b12p84ax2jmwb')">Buy License</a></td>
                 </tr>
                 <tr>
                     <td>🚀 Single Server Node</td>
                     <td><strong>$499.00 USD</strong></td>
                     <td>1 Live Production Server or SaaS node deployment (Lifetime value).</td>
-                    <td><a class="btn" href="#">Buy License</a></td>
+                    <td><a class="btn" href="#" onclick="openCheckout('pri_01kz6vf15gthtwjnm21p5x69yk')">Buy License</a></td>
                 </tr>
                 <tr>
                     <td>🚀 Enterprise SaaS Cluster</td>
                     <td><strong>$1199.00 USD/yr</strong></td>
                     <td>Enterprise SaaS Cluster - Annual Subscription</td>
-                    <td><a class="btn" href="#">Buy License</a></td>
+                    <td><a class="btn" href="#" onclick="openCheckout('pri_01kz6vjvbztv1433rg2dwazvy0')">Buy License</a></td>
                 </tr>
             </tbody>
         </table>
